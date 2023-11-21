@@ -1,0 +1,382 @@
+===============================================================================
+	             A        H       H   FFFFFFFF    
+	           A A       H       H   F           
+	         A   A      H       H   F           
+	       AAAAAAA     HHHHHHHHH   FFFFFF      
+	     A       A    H       H   F           
+	   A         A   H       H   F           
+	 A           A  H       H   F       (1.0/110)
+		Process 0. Total number of processes: 1
+===============================================================================
+
+ User Input:
+=============
+ic_filename       = /uio/hume/student-u25/daniv/AST4320_project2/L20_64_dark/L20_64_dark.000128 (TIPSY binary, 90)
+outfile_prefix    = L20_64_dark.000128
+LgridDomain       = 64
+LgridMax          = 16777216
+NminPerHalo       = 20
+VescTune          = 1.5
+NperDomCell       = 2
+NperRefCell       = 2.5
+RhoVir            = 0
+Dvir              = 200
+MaxGatherRad      = 3 Mpc/h
+LevelDomainDecomp = 6
+NcpuReading       = 1 
+
+
+
+
+
+
+===============================================================================
+
+		PART A
+	Setting up the run
+
+===============================================================================
+
+
+
+===============================================================================
+  A-1  Opening the data file
+===============================================================================
+
+Opening /uio/hume/student-u25/daniv/AST4320_project2/L20_64_dark/L20_64_dark.000128, a TIPSY binary file on 1 processes.
+Assuming swapped file
+Starting to initialize file object from /uio/hume/student-u25/daniv/AST4320_project2/L20_64_dark/L20_64_dark.000128
+   tipsy.info -> omega0:                         3.077000e-01
+   tipsy.info -> lambda0:                        6.923000e-01
+   tipsy.info -> boxsize:                        1.356200e+01
+   tipsy.info -> vunit:                          4.685990e+02
+   tipsy.info -> munit:                          6.923000e+14
+   tipsy.info -> eunit:                          8.783380e+05
+Done with initializing file object from /uio/hume/student-u25/daniv/AST4320_project2/L20_64_dark/L20_64_dark.000128
+Fileobject information:
+  Filetype:             TIPSY binary
+  Filename:             /uio/hume/student-u25/daniv/AST4320_project2/L20_64_dark/L20_64_dark.000128
+  Mode:                 1
+  Swapping:             1
+  File version:         1
+  Header size:          1
+  No. particles:        262144
+  No. particles w/mass: 262144
+  Multimass:            1
+  MMass (Halo parts):   1e+40
+  Minimal Weight:       1e+40
+  Maximal Weight:       0
+  Sum of all weights:   0
+  No. of species:       0
+  Position scale:       1
+  Weight scale:         1
+   time:                         1.000000e+00
+  nbodies:                       262144
+  ndim:                          3
+  nsph:                          0
+  ndark:                         262144
+  nstar:                         0
+  pad:                           0
+Getting memory for the loadbalance structure
+Getting memory for the bf array (1.000000MB)
+Getting memory for the local bf array (1.000000MB)
+Getting memory for fst- and lstkey arrays (2x0.007812kB)
+Getting memory for (boundary) particle per cpu arrays (2x0.007812kB)
+Done with creating loadbalance structure.
+
+
+===============================================================================
+  A-2  Reading data from file
+===============================================================================
+
+
+-------------------------------------------------------------------------------
+  A-2.1  Creating Storage
+-------------------------------------------------------------------------------
+
+WARNING: There are 262144 particles in the file, but the choice of pread and pskip would need 18446744073709551615, adjusting to 262144
+
+-------------------------------------------------------------------------------
+  A-2.2  Reading
+-------------------------------------------------------------------------------
+
+Obviously the file uses float for floating point values (4 bytes).
+A total of 262144 particle masses with 4 bytes per float (1.000000 MB total) are stored.
+Asked to read 262144 and to skip 0 particles. Checking those numbers.
+Updating local scale values to global values.
+local : maxpos[0] = 0.499997 	maxpos[1] = 0.499996 	maxpos[2] = 0.499989
+global: maxpos[0] = 0.499997 	maxpos[1] = 0.499996 	maxpos[2] = 0.499989
+local : minpos[0] = -0.499999 	minpos[1] = -0.499995 	minpos[2] = -0.499994
+global: minpos[0] = -0.499999 	minpos[1] = -0.499995 	minpos[2] = -0.499994
+local : sumweight = 0.3077
+global: sumweight = 0.3077
+local : minweight = 1.17378e-06
+global: minweight = 1.17378e-06
+local : maxweight = 1.17378e-06
+global: maxweight = 1.17378e-06
+local : mmass = 1.17378e-06
+global: mmass = 1.17378e-06
+Extreme positions: xmin = -0.499999  xmax = 0.499997
+                   ymin = -0.499995  ymax = 0.499996
+                   zmin = -0.499994  zmax = 0.499989
+Applying shift: (0.499999, 0.499995, 0.499994)
+Scaling by:  positions:  1
+             velocities: 0.345524
+             weights:    851947
+             energies:   878338
+
+-------------------------------------------------------------------------------
+  A-2.3  Short sanity check
+-------------------------------------------------------------------------------
+
+First particle:
+    positions (x,y,z):      0.934873  0.823672  0.89624
+    velocities (vx,vy,vz):  0.033447  -0.0948326  0.00188332
+    weight:                 1
+    ID:                     0
+    energy:                 -1
+Last particle:
+    positions (x,y,z):      0.938101  0.822029  0.899552
+    velocities (vx,vy,vz):  -0.02771  -0.117616  -0.0196039
+    weight:                 1
+    ID:                     262143
+    energy:                 -1
+
+
+===============================================================================
+  A-3  Setting simulation parameter
+===============================================================================
+
+
+-------------------------------------------------------------------------------
+  A-3.1  Information from file
+-------------------------------------------------------------------------------
+
+WARNING: ainitial is not set in a TIPSY file, using current expansion.
+WARNING: TIPSY files don't store the use of double precision. Assuming it is not double precision.
+WARNING: TIPSY files don't store the timestep. Setting to 500
+WARNING: Since a_initial = 1 is equal to a_final = 1, create_timeline will not function correctly, setting a_initial = .1 * a_final = 0.1
+
+-------------------------------------------------------------------------------
+  A-3.2  Gathering from reading processes
+-------------------------------------------------------------------------------
+
+Broadcast of simulation parameters!
+Broadcast done.
+
+-------------------------------------------------------------------------------
+  A-3.3  Local setup
+-------------------------------------------------------------------------------
+
+Creating timeline from a = 0.01 to a = 1
+Timeline created
+Setting volume boundaries
+  minkey: 0
+  maxkey: 262143
+  level : 6
+  ctype : Hilbert curve
+
+-------------------------------------------------------------------------------
+  A-3.4  Used simulation parameters
+-------------------------------------------------------------------------------
+
+simu.omega0          :  0.3077
+simu.lambda0         :  0.6923
+simu.boxsize         :  13.562
+simu.a_initial       :  0.1
+simu.a_final         :  1
+simu.z_initial       :  2.22045e-15
+simu.z_final         :  0
+simu.t_initial       :  0.0379911
+simu.t_final         :  0.957281
+simu.super_t_initial :  -7.28865
+simu.super_t_final   :  -0
+simu.mean_dens       :  1
+simu.FourPiG         :  0.46155
+simu.pmass           :  8.1261e+08
+simu.t_unit          :  0.01
+simu.gamma           :  0
+simu.timeline (ptr)  :  0x661088
+simu.no_part         :  262144
+simu.no_vpart        :  262144
+simu.no_species      :  1
+simu.no_halos        :  0
+simu.NGRID_DOM       :  64
+simu.NGRID_MIN       :  64
+simu.NGRID_MAX       :  16777216
+simu.Nth_dom         :  2
+simu.Nth_ref         :  2.5
+simu.MaxGatherRad    :  3
+simu.lb_level        :  6
+simu.min_weight      :  1
+simu.max_weight      :  1
+simu.np_limit        :  0
+simu.mmfocus         :  0
+simu.multi_mass      :  1
+simu.double_precision:  0
+
+-------------------------------------------------------------------------------
+  A-3.5  Setting time counter
+-------------------------------------------------------------------------------
+
+WARNING: TIPSY files don't store the timestep. Setting to 500
+WARNING: TIPSY files don't store the timestep. Setting to 0.0
+
+
+===============================================================================
+  A-4  Tidying
+===============================================================================
+
+Closing a TIPSY binary file.
+
+
+===============================================================================
+  A-5  Initial Load-Balancing and Particle Distribution
+===============================================================================
+
+
+-------------------------------------------------------------------------------
+  A-5.1  Loadbalancing
+-------------------------------------------------------------------------------
+
+Setting local counting array to 0... done
+Updating SFC-Key and counting... done
+Calculating the distribution of the cells.
+first global bucket = 0000000
+
+ppcpu = 0262144npart: 0000001
+
+Calculating how many particle of which process we are holding.
+Loadbalance done.
+Loadbalance structure:
+  scheme:          equalpart: Same number of particles per cpu
+  level:           6
+  startkey:        0
+  totkeys:         262144
+  bf:              skipping 1024.000000kB
+  loc_bf:          skipping 1024.000000kB
+  ncpu:            1
+  fstkey/lstkey:
+    0000    0/262143
+  no_parts/no_parts_loc:
+    0000:   262144/262144
+  Inner boundary:
+    To CPU 0, Quality: 262144/0 = inf
+  Outer boundary:
+    Quality: 262144/0 = inf
+
+-------------------------------------------------------------------------------
+  A-5.2  Sorting particles
+-------------------------------------------------------------------------------
+
+Sorting done.
+
+-------------------------------------------------------------------------------
+  A-5.3  Distributing particles
+-------------------------------------------------------------------------------
+
+Currently having 262144 particles.
+Distributing done.
+Having 262144 particles!
+
+-------------------------------------------------------------------------------
+  A-5.4  AHF distribution (duplicating)
+-------------------------------------------------------------------------------
+
+Received 0 new particles.
+AHF distribution done.
+Minimizing memory usage of loadbalance structure.
+Free'd bf array (1.000000MB returned)
+Free'd local bf array (1.000000MB returned)
+amiga_main:  running with 262144 particles
+
+
+
+
+
+
+===============================================================================
+
+		PART B
+	Handing over logging to AMIGA
+
+===============================================================================
+
+################## ahf_gridinfo ###################
+Number of grids           = 7
+Number of refinements     = 6
+global.domgrid_no         = 0
+l1dim =               64 refine_ovdens =           0.7692 ovlim =              200
+l1dim =              128 refine_ovdens =            6.154 ovlim =              200
+l1dim =              256 refine_ovdens =            49.23 ovlim =              200
+l1dim =              512 refine_ovdens =            393.8 ovlim =              200
+l1dim =             1024 refine_ovdens =             3151 ovlim =              200
+l1dim =             2048 refine_ovdens =        2.521e+04 ovlim =              200
+l1dim =             4096 refine_ovdens =        2.016e+05 ovlim =              200
+max_ovdens = 201643
+min_ref = 2    (ahf_nogrids = 5)
+################## ahf_gridinfo finished ##################
+
+#################### ahf_halos ####################
+AHF_MINPART  = 20
+AHF_VTUNE    = 1.5
+z            = 2.22045e-15
+Omega(z)     = 0.3077
+OmegaL(z)    = 0.6923
+rho_crit(z)  = 2.77554e+11
+rho_back(z)  = 8.54034e+10
+rho_vir(z)   = 2.77554e+11 (actual normalisation density)
+Delta_vir(z) = 200
+Hubble(z)    = 100
+      => adjusted number of halos: found=1065 (totnumIsoRef=2061) expected=1065 (tmpCount=1064)
+
+Figuring out which halo can be ignored.
+Done with flagging halos to be ignored: numHalos=1065 new_numHalos=1065
+  Used     0.015033s to write halos
+  Used       0.0396s to write profiles
+  Used   0.00088077s to write substructures
+  Used     0.016985s to write particles
+Used     0.072524s to write data to ASCII files
+
+supercomoving T = -0.000000
+scale factor  a = 1.000000
+redshift      z = 0.000000
+
+grid information
+----------------
+GRID           64: nodes=      262144 ( 0.00586 GB) npart=18446744073709213724 - TIME: pot=     0 dens=     0 DK=     0 grid=     0 hydro=     0 - SWEEPS: 0 0
+GRID          128: nodes=      584888 (  0.0131 GB) npart=      221203 - TIME: pot=     0 dens=     0 DK=     0 grid=     1 hydro=     0 - SWEEPS: 0 0
+GRID          256: nodes=      596112 (  0.0133 GB) npart=      168135 - TIME: pot=     0 dens=     0 DK=     0 grid=     0 hydro=     0 - SWEEPS: 0 0
+GRID          512: nodes=      520792 (  0.0116 GB) npart=      118445 - TIME: pot=     0 dens=     0 DK=     0 grid=     0 hydro=     0 - SWEEPS: 0 0
+GRID         1024: nodes=      335824 ( 0.00751 GB) npart=       64717 - TIME: pot=     0 dens=     0 DK=     0 grid=     0 hydro=     0 - SWEEPS: 0 0
+GRID         2048: nodes=      144600 ( 0.00323 GB) npart=       24006 - TIME: pot=     0 dens=     0 DK=     0 grid=     0 hydro=     0 - SWEEPS: 0 0
+GRID         4096: nodes=       26176 (0.000585 GB) npart=        3530 - TIME: pot=     0 dens=     0 grid=     0
+                                                                                        0           0         1
+detailed timing information (in sec.)
+-------------------------------------
+io           = 1
+      - startrun     = 0
+      - loadbalance  = 1
+      - distribution = 0
+gendomgrids  = 0
+ll           = 0
+genrefgrids  = 1
+densrecovery = 0
+ahf_gridinfo = 1
+ahf_halos    = 0
+      - RefCentre                   = 0
+      - analyseRef                  = 0
+      - generate_tree               = 2
+      - spatialRef2halos            = 0
+      - ahf_halos_sfc_constructHalo = 0
+      - I/O                         = 0
+
+summary information
+-------------------
+time for AHF        =        1 seconds (0.000278 hours)
+total time          =        3 seconds (0.000833 hours)
+cumulative time     = 0.000833 hours (3.47222e-05 days)
+memory during step  =   0.0723 GB
+==========================================================
+                       FINISHED (v1.0/110)
+==========================================================

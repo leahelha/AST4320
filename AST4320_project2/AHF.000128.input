@@ -1,0 +1,81 @@
+[AHF]
+
+# (stem of the) filename from which to read the data to be analysed
+ic_filename       = /mn/stornext/u3/shens/extragal/L40_128_dark/L40_128_dark.000128
+
+# what type of input file (cf. src/libio/io_file.h)
+ic_filetype       = 90
+
+# prefix for the output files
+outfile_prefix    = L40_128_dark
+
+# number of grid cells for the domain grid (1D)
+LgridDomain       = 64
+
+# number of grid cells for the domain grid (1D) (limits spatial resolution to BoxSize/LgridMax)
+LgridMax          = 16777216 
+
+# refinement criterion on domain grid (#particles/cell)
+NperDomCell       = 2.0
+
+# refinement criterion on all higher resolution grids (#particles/cells)
+NperRefCell       = 2.5
+
+# particles with velocity v > VescTune x Vesc are considered unbound 
+VescTune          = 1.5 
+
+# minimum number of particles for a halo
+NminPerHalo       = 20
+
+# normalisation for densities (1: RhoBack(z), 0:RhoCrit(z))
+RhoVir            = 0
+
+# virial overdensity criterion (<0: let AHF calculate it); Rvir is defined via M(<Rvir)/Vol = Dvir * RhoVir
+Dvir              = 200 
+
+# maximum radius (in Mpc/h) used when gathering initial set of particles for each halo (should be larger than the largest halo expected)
+MaxGatherRad      = 3.0	
+
+# the level on which to perform the domain decomposition (MPI only, 4=16^3, 5=32^3, 6=64^3, 7=128^3, 8=256^3, etc.)
+LevelDomainDecomp = 6
+
+# how many CPU's for reading (MPI only)
+NcpuReading       = 1
+
+# name of file containing the dark energy relevant tables (only relevant for -DDARK_ENERGY)
+de_filename       = my_dark_energy_table.txt
+
+
+############################### FILE SPECIFIC DEFINITIONS ###############################
+
+# NOTE: all these factors are supposed to transform your internal units to
+#           [x] = Mpc/h
+#           [v] = km/sec
+#           [m] = Msun/h
+#           [e] = (km/sec)^2
+
+[GADGET]
+#GADGET_LUNIT      = 1.
+#GADGET_MUNIT      = 1e10
+
+[GIZMO]
+#GIZMO_LUNIT       = 1.
+#GIZMO_MUNIT       = 1e10
+
+
+[PKDGRAV]
+#PKDGRAV_MUNIT       =  3.964816e20
+#PKDGRAV_LUNIT       =  1.428571e06
+
+
+[TIPSY]
+TIPSY_BOXSIZE       = 27.124
+TIPSY_MUNIT         = 5.5384e15 
+TIPSY_VUNIT         = 937.197
+TIPSY_EUNIT         = 8.78338e5
+TIPSY_OMEGA0        = 0.3077
+TIPSY_LAMBDA0       = 0.6923
+
+[ART]
+#ART_BOXSIZE         = 20
+#ART_MUNIT           = 6.5e8

@@ -1,0 +1,47 @@
+===============================================================================
+	             A        H       H   FFFFFFFF    
+	           A A       H       H   F           
+	         A   A      H       H   F           
+	       AAAAAAA     HHHHHHHHH   FFFFFF      
+	     A       A    H       H   F           
+	   A         A   H       H   F           
+	 A           A  H       H   F       (1.0/110)
+		Process 0. Total number of processes: 1
+===============================================================================
+
+ User Input:
+=============
+ic_filename       = /uio/hume/student-u49/leaheh/AST4320_project2/L20_128_dark.000128 (TIPSY binary, 90)
+outfile_prefix    = L40_128_dark.00128
+LgridDomain       = 64
+LgridMax          = 16777216
+NminPerHalo       = 20
+VescTune          = 1.5
+NperDomCell       = 2
+NperRefCell       = 2.5
+RhoVir            = 0
+Dvir              = 200
+MaxGatherRad      = 3 Mpc/h
+LevelDomainDecomp = 6
+NcpuReading       = 1 
+
+
+
+
+
+
+===============================================================================
+
+		PART A
+	Setting up the run
+
+===============================================================================
+
+
+
+===============================================================================
+  A-1  Opening the data file
+===============================================================================
+
+Opening /uio/hume/student-u49/leaheh/AST4320_project2/L20_128_dark.000128, a TIPSY binary file on 1 processes.
+FATAL: Could not open '/uio/hume/student-u49/leaheh/AST4320_project2/L20_128_dark.000128' for reading.

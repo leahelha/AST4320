@@ -1,0 +1,2 @@
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mn/stornext/u3/robertwi/Downloads/gasoline/Downloads/splash/giza/lib
+export GFORTRAN_CONVERT_UNIT=big_endian
