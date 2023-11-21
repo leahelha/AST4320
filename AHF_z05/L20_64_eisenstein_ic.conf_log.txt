@@ -1,0 +1,112 @@
+13:44:26 | info    | Opening log file 'L20_64_eisenstein_ic.conf_log.txt'.
+13:44:26 | info    | Running music!, version 1.53
+13:44:26 | info    | Log is for run started Wed Sep  6 13:44:26 2023 
+13:44:26 | info    | Code was compiled using FFTW version 3.x
+13:44:26 | info    | Code was compiled for multi-threaded FFTW
+13:44:26 | info    | Running with a maximum of 40 OpenMP threads
+13:44:26 | info    | Code was compiled for double precision.
+13:44:26 | info    | Using k-space sampled transfer functions...
+13:44:26 | info    | Selecting transfer function plug-in  : eisenstein
+13:44:26 | info    | Selecting region generator plug-in  : box
+13:44:26 | info    | Selecting random number generator plug-in  : MUSIC
+13:44:26 | info    | Grid structure for Poisson solver:
+13:44:26 | info    |    Domain shifted by      (    0,    0,    0)
+13:44:26 | info    |    Level   6 :   offset = (    0,    0,    0)
+13:44:26 | info    |                    size = (   64,   64,   64)
+13:44:26 | info    | Grid structure for density convolution:
+13:44:26 | info    |    Domain shifted by      (    0,    0,    0)
+13:44:26 | info    |    Level   6 :   offset = (    0,    0,    0)
+13:44:26 | info    |                    size = (   64,   64,   64)
+13:44:26 | info    | Computing white noise...
+13:44:26 | info    | Found 0 density constraint(s) to be obeyed.
+13:44:26 | info    | Generating random numbers (2) with seed 520
+13:44:26 | info    | Generating random numbers w/ sample cube size of 32
+13:44:26 | info    | Storing white noise field in file 'wnoise_0006.bin'...
+13:44:26 | info    | Entering 1LPT branch
+13:44:26 | info    | Computing dark matter displacements...
+13:44:26 | info    | Using k-space transfer function kernel.
+13:44:26 | info    | Performing noise convolution on level   6
+13:44:26 | info    | Loading white noise from file 'wnoise_0006.bin'...
+13:44:26 | info    | Performing kernel convolution on (   64,   64,   64) grid
+13:44:26 | info    | Performing forward FFT...
+13:44:26 | info    | Performing backward FFT...
+13:44:26 | info    | Finished computing the density field in 0.030802s
+13:44:26 | info    | Grid mean density is 4.94066e-323. Correcting...
+13:44:26 | info    | Writing CDM data
+13:44:26 | info    | Entering k-space Poisson solver...
+13:44:26 | info    | Performing forward transform.
+13:44:26 | info    | Performing backward transform.
+13:44:26 | info    | Done with k-space Poisson solver.
+13:44:26 | info    | Writing CDM potential
+13:44:26 | info    | Computing a gradient in k-space... 
+13:44:26 | info    | Done with k-space gradient. 
+13:44:26 | info    | max. x-displacement of HR particles is -0.338571 [mean dx]
+13:44:26 | info    | Writing CDM displacements
+13:44:26 | info    | Computing a gradient in k-space... 
+13:44:26 | info    | Done with k-space gradient. 
+13:44:26 | info    | max. y-displacement of HR particles is 0.269584 [mean dx]
+13:44:26 | info    | Writing CDM displacements
+13:44:26 | info    | Computing a gradient in k-space... 
+13:44:26 | info    | Done with k-space gradient. 
+13:44:26 | info    | max. z-displacement of HR particles is 0.240557 [mean dx]
+13:44:26 | info    | Writing CDM displacements
+13:44:26 | info    | Computing velocitites...
+13:44:26 | info    | Computing a gradient in k-space... 
+13:44:26 | info    | Done with k-space gradient. 
+13:44:26 | info    | sigma of x-velocity of high-res particles is 1.011726
+13:44:26 | info    | Writing CDM velocities
+13:44:26 | info    | Computing a gradient in k-space... 
+13:44:26 | info    | Done with k-space gradient. 
+13:44:26 | info    | sigma of y-velocity of high-res particles is 0.803289
+13:44:26 | info    | Writing CDM velocities
+13:44:26 | info    | Computing a gradient in k-space... 
+13:44:26 | info    | Done with k-space gradient. 
+13:44:26 | info    | sigma of z-velocity of high-res particles is 0.647087
+13:44:26 | info    | Writing CDM velocities
+13:44:26 | info    | TIPSY : output plugin will write:        DM particles   : 262144        SPH particles  : 0
+13:44:26 | info    | TIPSY : writing DM data
+13:44:27 | info    | TIPSY : done writing.
+13:44:27 | info    | Wrote output file 'L20_64_IC.dat'.
+13:44:27 | info    | Run finished succesfully on Wed Sep  6 13:44:27 2023 
+13:44:27 | info    | List of all configuration options:
+13:44:27 | info    |               cosmology/H0 = 67.81
+13:44:27 | info    |          cosmology/Omega_L = 0.6923
+13:44:27 | info    |          cosmology/Omega_b = 0.0484
+13:44:27 | info    |          cosmology/Omega_m = 0.3077
+13:44:27 | info    |            cosmology/dplus = 0.00997045474179
+13:44:27 | info    |            cosmology/nspec = 0.9693
+13:44:27 | info    |            cosmology/pnorm = 1.2462804339
+13:44:27 | info    |          cosmology/sigma_8 = 0.8165
+13:44:27 | info    |         cosmology/transfer = eisenstein
+13:44:27 | info    |            cosmology/vfact = 627.579446489
+13:44:27 | info    |            output/filename = L20_64_IC.dat
+13:44:27 | info    |              output/format = tipsy
+13:44:27 | info    |           poisson/accuracy = 1e-4
+13:44:27 | info    |           poisson/fft_fine = yes
+13:44:27 | info    |         poisson/grad_order = 6
+13:44:27 | info    |      poisson/laplace_order = 6
+13:44:27 | info    |             random/seed[6] = 520
+13:44:27 | info    |            setup/align_top = no
+13:44:27 | info    |              setup/baryons = no
+13:44:27 | info    |            setup/boxlength = 20
+13:44:27 | info    |               setup/do_SPH = yes
+13:44:27 | info    |            setup/kspace_TF = yes
+13:44:27 | info    |             setup/levelmax = 6
+13:44:27 | info    |             setup/levelmin = 6
+13:44:27 | info    |          setup/levelmin_TF = 6
+13:44:27 | info    |             setup/no_shift = yes
+13:44:27 | info    |          setup/offset(6,0) = 0
+13:44:27 | info    |          setup/offset(6,1) = 0
+13:44:27 | info    |          setup/offset(6,2) = 0
+13:44:27 | info    |              setup/overlap = 4
+13:44:27 | info    |              setup/padding = 6
+13:44:27 | info    |          setup/periodic_TF = yes
+13:44:27 | info    |              setup/shift_x = 0
+13:44:27 | info    |              setup/shift_y = 0
+13:44:27 | info    |              setup/shift_z = 0
+13:44:27 | info    |            setup/size(6,0) = 64
+13:44:27 | info    |            setup/size(6,1) = 64
+13:44:27 | info    |            setup/size(6,2) = 64
+13:44:27 | info    |             setup/use_2LPT = no
+13:44:27 | info    |              setup/use_LLA = no
+13:44:27 | info    |               setup/zstart = 127
