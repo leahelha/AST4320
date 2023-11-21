@@ -137,7 +137,7 @@ for i in range(len(ahf_folders)):
         #plt.errorbar(r, rho, yerr=_error, fmt='o', markersize=1, color=color)
         
         if j == 0:
-            plt.semilogy(r, rho_theory, linestyle='-', color='black', label = f'Most massive theoretical halo')
+            plt.semilogy(r, rho_theory, linestyle='-', color='black', label = f'NFW profile')
             plt.semilogy(r, rho, linestyle=':', color='black', label = f'Most massive halo')
 
     plt.legend()
