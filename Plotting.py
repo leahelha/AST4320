@@ -5,15 +5,7 @@ from pynbody . analysis import hmf
 import glob
 
 '''DISCLAIMER: Although the filenames of the simulations are L20_64_dark.000xxx, the simulations ran for nSteps = 128, not 64'''
-"""
-L20_64_dark.000011, a = 0.16856184932537036, z = 4.932540512590884  X
-L20_64_dark.000014, a = 0.19782413880283825, z = 4.05499483557288   X
-L20_64_dark.000020, a = 0.25102850656084447, z = 2.9836113184923057 X
-L20_64_dark.000030, a = 0.33012887286629417, z = 2.029120086703265  X
-L20_64_dark.000054, a = 0.4974857324852427, z = 1.0101078979780866  X
-L20_64_dark.000080, a = 0.6678047077993748, z = 0.49744377109186977 X
-L20_64_dark.000128, z = 0
-"""
+
 
 ahf_folders = ['AHF_z0', 'AHF_z05', 'AHF_z1', 'AHF_z2', 'AHF_z3', 'AHF_z4', 'AHF_z5'] 
 files = ['L20_64_dark.000128', 'L20_64_dark.000080', 'L20_64_dark.000054', 'L20_64_dark.000030', 'L20_64_dark.000020', 'L20_64_dark.000014', 'L20_64_dark.000011']
