@@ -165,161 +165,8 @@ for i in range(len(ahf_folders)):
     #plt.show()
 
     
-    
 
 
-
-exit()
-'Plotting everything together'
-plt.figure()
-for i in range(len(ahf_folders)):
-    snap = pynbody.load(f"{ahf_folders[i]}/{files[i]}")
-    print('a =', snap.properties['a'])
-
-    # put snapshot into physical units ,
-    # and define which units to use
-    snap.physical_units(distance='kpc a h^-1', mass='Msol h^-1')
-    
-    # load in halos
-    halos = snap.halos()
-    #halos are numbered from 1 , not 0
-    #print(halos[1].properties)
-    dmbin = 0.1
-
-    # theoretical Press - Schechter ( PS ) halo mass function
-    M_theory, _, HMF_theory = hmf.halo_mass_function(snap, kern="PS", log_M_min=10, log_M_max=15, delta_log_M=dmbin)
-    # halo mass function from data
-    #M_data, HMF_data, error = hmf.simulation_halo_mass_function(snap)
-
-    M_data, HMF_data, error = hmf.simulation_halo_mass_function(snap, log_M_min=10, log_M_max=15, delta_log_M=dmbin)
-    #print(M_data)
-
-
-    #help(hmf.halo_mass_function)
-    
-#     plt.loglog(M_theory, HMF_theory, color='k')
-#     #plt.errorbar(M_data, HMF_data, yerr=error, fmt='o', capthick='0.1', elinewidth='1', color='red', markersize=3)
-#     plt.errorbar(M_data, HMF_data, yerr=error, fmt='o', markersize=3, label=f'z{i}')
-
-# plt.xlabel('log(M) [Msol]')
-# plt.ylabel('$dN/(d\log_{10}M)$  [Mpc$^{-3} h^3$]')
-# plt.legend()
-
-# plt.savefig(f'./plots/All_halo_mass_function')
-
-
-
-'Attempting to plot top 10 massive dark matter density profiles'
-
-"""
-
-_r = np.zeros((len(ahf_folders), 10))
-_rho = np.zeros((len(ahf_folders), 10))
-_rho_theory = np.zeros((len(ahf_folders), 10))
-_error = np.zeros((len(ahf_folders), 10))
-for j in range(10):
-    for i in range(len(ahf_folders)):
-        snap = pynbody.load(f"{ahf_folders[i]}/{files[i]}")
-        #print('a =', snap.properties['a'])
-
-        # put snapshot into physical units ,
-        # and define which units to use
-        snap.physical_units(distance='kpc a h^-1', mass='Msol h^-1')
-        
-        # load in halos
-        halos = snap.halos()
-        #halos are numbered from 1 , not 0
-        #print(halos[1].properties)
-
-        from pynbody . analysis . theoretical_profiles import NFWprofile
-
-        halo = halos[1]
-        halo_properties = halo.properties
-
-        shift_halo = pynbody.analysis.angmom.halo.center(halos[1], 'pot', vel=False, wrap=True) #centers whole simulation to the halo center
-
-        # calculate a theoretical profile from halo properties
-        NFW_theory = NFWprofile(halo_radius = halo_properties["Rhalo"], concentration = halo_properties["cNFW"], halo_mass = halo_properties["Mhalo"])
-
-        theoretical_profile = NFW_theory.profile_functional
-
-        profiles = pynbody.analysis.profile.Profile(snap.d, rmin='.01 kpc', rmax=str(halos[1].properties['Rhalo']) + ' kpc', ndim=3, nbins=100)
-
-        # results, can be used instead of r-theory 
-
-        r = profiles['rbins'].in_units('kpc')
-        rho = profiles['density'].in_units('Msol kpc**-3')
-        rho_theory = theoretical_profile(r)
-        error = profiles ['density']*profiles['n']**(-1/2)
-
-        # _r.append(r)
-        # _rho.append(rho)
-        # _rho_theory.append(rho_theory)
-        # _error.append(error)
-        _r[i, j] = r[j]
-        _rho[i, j] = rho[j]
-        _rho_theory[i, j] = rho_theory[j]
-        _error[i, j] = error[j]
-
-
-        #plt.semilogy(r, rho)
-
-plt.errorbar(_r[0,:], _rho[0, :], yerr=_error[0, :], fmt='o', markersize=2)
-plt.semilogy(_r[0, :], _rho_theory[0, :])
-    
-plt.legend()
-plt.xlabel('kpc')
-plt.ylabel('Msol kpc^-3')
-plt.show()
-
-print(np.shape(_r))
-# plt.savefig(f'./plots/All_NFW_profile_halomass_top_10')
-   """ 
-
-"""
-Note: the fitting step will fail if there are zeros in the density array rho.
-To avoid this, you should add a step that checks removes places where ρ = 0.
-Alternatively, you can try to make the bins larger when you calculate the density.
-"""
-
-
-
-"""
-Group session questions:
-- Column density map for L20_64_dark.000128 was supposed to be at a redshift 0, snap.properties['a'] returns value of a=0.9999999999999978
-
-- Error messages:
-    - UserWarning: Halo finder masses not provided. Calculating them (might take a while...)
-    - warnings.warn("Your bin range does not encompass the full range of halo masses"
-    - RuntimeWarning: divide by zero encountered in power
-    - error = profiles["density"]* profiles["n"]**(-1/2)
-    - 
-   
-    
-"""
-
-"""
-What i got for running ahf-v1.0-110/bin/AHF-v1.0-110 AHF.000128.input:
-
-These are the input parameters you provided, please check them carefully again:
-===============================================================================
-ic_filename       = /uio/hume/student-u49/leaheh/AST4320_project2/L20_64_dark.000128
-ic_filetype       = 90
-outfile_prefix    = L20_64_dark.000128
-time    = 1.000000
-nbodies = 262144
-ndim    = 3
-nsph    = 0
-ndark   = 262144
-nstar   = 0
-"""
-
-"""
-Notes for report:
-- Column density plot. Discuss qualitatively what you observe in these snapshots in terms of number of halos, their sizes, the cosmic filaments etc.
-- *** check units on NWF plot,  'kpc a h**-1' is in the properties
-
-"""
 
 """
 redshifted files I chose
@@ -331,7 +178,7 @@ L20_64_dark.000030, a = 0.33012887286629417, z = 2.029120086703265
 L20_64_dark.000054, a = 0.4974857324852427, z = 1.0101078979780866  
 L20_64_dark.000080, a = 0.6678047077993748, z = 0.49744377109186977 
 
-#Code for finding this
+#Code for writing redshifts.txt and finding the redshifts
 files = []
 for i in range(9):
     s = f'00{i+1}'
@@ -356,6 +203,8 @@ with open('redshifts.txt', 'w') as outfile:
 
 
 """
+
+
 
 #/mn/stornext/d17/extragalactic/personal/shens/ahf-v1.0-110/
 
