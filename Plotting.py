@@ -45,7 +45,7 @@ for i in range(len(ahf_folders)):
     plt.errorbar(M_data, HMF_data, yerr=error, fmt='bo', markersize=3, label='Our results')
     
 
-    if i == 90:
+    if i == 0:
         '''Going through other student data + Sijing's data'''
         s = ['15502', '15506', '15507', '15509', '15510', 'Shen']
         
@@ -84,7 +84,7 @@ for i in range(len(ahf_folders)):
     plt.xlabel('$log_{10}(M)$  $[M_{sol} h^{-1}]$', fontsize=fontsize)
     plt.ylabel('$dN/(dlog_{10}M)$  $[Mpc^{-3} h^3]$', fontsize=fontsize)
     plt.title(f'z = {redshift[i]}', fontsize=fontsize)
-    plt.savefig(f'./Plots/Testing_HMF/{ahf_folders[i]}_halo_mass_function_none')
+    plt.savefig(f'./Plots/Testing_HMF/{ahf_folders[i]}_halo_mass_function')
 
     
   
