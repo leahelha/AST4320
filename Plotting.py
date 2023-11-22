@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from pynbody . analysis import hmf
 import glob
 
-'''DISCLAIMER: Although the filenames of the simulations are L20_64_dark.000xxx, the simulations ran for nSteps = 128, not 64'''
+'''DISCLAIMER: Although the filenames of the simulations are L20_64_dark.000xxx, the simulations ran for nSteps = 128'''
 
 
 ahf_folders = ['AHF_z0', 'AHF_z05', 'AHF_z1', 'AHF_z2', 'AHF_z3', 'AHF_z4', 'AHF_z5'] 
